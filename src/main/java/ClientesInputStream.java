@@ -22,7 +22,6 @@ public class ClientesInputStream extends InputStream {
                 throw new IllegalArgumentException("Formato de dados inválido: " + linha);
             }
     
-            // Extrair os campos necessários
             String nomeCliente = dados[0].trim();
             String cpf = dados[1].trim().replaceAll("[^0-9]", "");
             if (cpf.length() != 11) {

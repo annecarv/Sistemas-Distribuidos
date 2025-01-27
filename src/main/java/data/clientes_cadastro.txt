@@ -2,3 +2,4 @@ Anne,61620199911,27,Plano: Basico, Canais: 0, Valor: R$ 0.0
 Duda,12354796399,15,Plano: Premium, Canais: 0, Valor: R$ 0.0
 Anne,12369877710,25,Plano: Premium, Canais: 0, Valor: R$ 0.0
 Maria,12345678911,25,Plano: Basico, Canais: 0, Valor: R$ 0.0
+Anne,61691255351,19,Plano: Premium, Canais: 0, Valor: R$ 0.0
