@@ -78,7 +78,7 @@ public class ClientesInputStream extends InputStream {
                 System.out.println("Exemplo: Maria,123.456.789-00,30,Básico");
 
                 String entrada = scanner.nextLine().trim();
-
+ 
                 try (ClientesInputStream cis = new ClientesInputStream(new ByteArrayInputStream(entrada.getBytes()))) {
                     Cliente cliente = cis.lerCliente(entrada);
                     if (cliente != null) {
