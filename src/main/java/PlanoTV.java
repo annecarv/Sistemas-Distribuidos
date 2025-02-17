@@ -1,4 +1,4 @@
-package main.java;
+package sistemas_distribuidos_java.src.main.java;
 
 public class PlanoTV {
     private String nomePlano;

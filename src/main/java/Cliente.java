@@ -1,39 +1,44 @@
-package main.java;
+package sistemas_distribuidos_java.src.main.java;
 
-public class Cliente {
-    private String nomeCliente;
-    private String cpf;
-    private int idade;
-    private PlanoTV planoContratado;
+import java.io.Serializable;
 
-        public Cliente(String nomeCliente, String cpf, int idade) {
-            this.nomeCliente = nomeCliente;
-            this.cpf = cpf;
-            this.idade = idade;
+public class Cliente implements Serializable {
+    private String nome;
+    private PlanoTV plano;
+    private Endereco endereco;
+
+    public Cliente(String nome, PlanoTV plano, Endereco endereco) {
+        this.nome = nome;
+        this.plano = plano;
+        this.endereco = endereco;
     }
 
-    public String getNomeCliente() {
-        return nomeCliente;
+    public String getNome() {
+        return nome;
     }
 
-    public String getCpf() {
-        return cpf;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public int getIdade() {
-        return idade;
+    public PlanoTV getPlano() {
+        return plano;
     }
 
-    public PlanoTV getPlanoContratado() {
-        return planoContratado;
+    public void setPlano(PlanoTV plano) {
+        this.plano = plano;
     }
 
-    public void contratarPlano(PlanoTV plano) {
-        this.planoContratado = plano;
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 
     @Override
     public String toString() {
-        return "Cliente: " + nomeCliente + ", CPF: " + cpf + ", Plano: " + (planoContratado != null ? planoContratado.getNomePlano() : "Nenhum");
+        return "Cliente{nome=" + nome + ", plano=" + plano + ", endereco=" + endereco + "}";
     }
 }

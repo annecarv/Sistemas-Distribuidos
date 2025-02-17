@@ -1,4 +1,4 @@
-package main.java.server;
+package sistemas_distribuidos_java.src.main.java;
 
 import java.io.IOException;
 import java.io.InputStream;
