@@ -1,6 +1,6 @@
-package sistemas_distribuidos_java.src.main.java;
+package sd_project.sistemas_distribuidos_java.src.main.java;
 
-public import java.io.Serializable;
+import java.io.Serializable;
 
 public class Fatura implements Serializable {
     private Cliente cliente;
@@ -31,7 +31,4 @@ public class Fatura implements Serializable {
     public String toString() {
         return "Fatura{cliente=" + cliente.getNome() + ", valor=" + valor + "}";
     }
-}
- {
-    
 }

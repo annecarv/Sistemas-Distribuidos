@@ -1,4 +1,4 @@
-package sistemas_distribuidos_java.src.main.java;
+package sd_project.sistemas_distribuidos_java.src.main.java;
 
 import java.rmi.server.UnicastRemoteObject;
 import java.rmi.RemoteException;
@@ -11,8 +11,7 @@ public class PlanoTVServiceImpl extends UnicastRemoteObject implements PlanoTVSe
 
     @Override
     public Fatura gerarFatura(Cliente cliente) throws RemoteException {
-        // Gerar fatura com base no cliente
-        double valor = cliente.getPlano().getPreco();
+        double valor = cliente.getPlano();
         return new Fatura(cliente, valor);
     }
 

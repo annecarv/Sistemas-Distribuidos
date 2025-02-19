@@ -1,4 +1,4 @@
-package main.java;
+package sd_project.sistemas_distribuidos_java.src.main.java;
 
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
@@ -25,7 +25,7 @@ public class ClientesOutputStream extends OutputStream {
 
         for (Cliente cliente : clientes) {
             //envia o tamanho em bytes e o conteúdo - nome do cliente
-            byte[] nomeBytes = cliente.getNomeCliente().getBytes();
+            byte[] nomeBytes = cliente.getNome().getBytes();
             dataOut.writeInt(nomeBytes.length);  
             dataOut.write(nomeBytes);           
 
@@ -52,7 +52,7 @@ public class ClientesOutputStream extends OutputStream {
     public void enviarClientes(Cliente[] clientes) throws IOException {
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(destino));
         for (Cliente cliente : clientes) {
-            String linha = String.format("%s,%s,%d,%s", cliente.getNomeCliente(), cliente.getCpf(), cliente.getIdade(), cliente.getPlanoContratado() != null ? cliente.getPlanoContratado().getNomePlano() : "Nenhum");
+            String linha = String.format("%s,%s,%d,%s", cliente.getNome(), cliente.getCpf(), cliente.getIdade(), cliente.getPlano() != null ? cliente.getPlano().getNomePlano() : "Nenhum");
             writer.write(linha);
             writer.newLine();
         }
@@ -72,8 +72,8 @@ public class ClientesOutputStream extends OutputStream {
                 new Cliente("Anne", "111.222.333-44", 20)
             };
 
-            clientes[0].contratarPlano(planoBasico);
-            clientes[1].contratarPlano(planoAvancado);
+            clientes[0].setPlano(planoBasico);
+            clientes[1].setPlano(planoAvancado);
 
             File arquivo = new File("/Users/enniax/Documents/sistemas_distribuidos_java/src/main/java/data/clientes_input.txt");
             System.out.println("Enviando dados para o arquivo: " + arquivo.getName());

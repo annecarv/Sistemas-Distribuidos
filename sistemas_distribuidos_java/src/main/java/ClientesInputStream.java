@@ -1,4 +1,4 @@
-package sistemas_distribuidos_java.src.main.java;
+package sd_project.sistemas_distribuidos_java.src.main.java;
 
 import java.io.*;
 import java.util.Scanner;
@@ -34,12 +34,11 @@ public class ClientesInputStream extends InputStream {
                 nomePlano = nomePlano.split(":")[1].trim();
             }
     
-            // Criar objetos
             PlanoTV plano = !nomePlano.equalsIgnoreCase("Nenhum") ? new PlanoTV(nomePlano, 0, 0) : null;
             Cliente cliente = new Cliente(nomeCliente, cpf, idade);
     
             if (plano != null) {
-                cliente.contratarPlano(plano);
+                cliente.setPlano(plano);
             }
     
             return cliente;
@@ -53,7 +52,7 @@ public class ClientesInputStream extends InputStream {
     public static void salvarClienteEmArquivo(Cliente cliente, String caminhoArquivo) {
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(caminhoArquivo, true))) {
-            writer.write(cliente.getNomeCliente() + "," + cliente.getCpf() + "," + cliente.getIdade() + "," + cliente.getPlanoContratado());
+            writer.write(cliente.getNome() + "," + cliente.getCpf() + "," + cliente.getIdade() + "," + cliente.getPlano());
             writer.newLine();
         } catch (IOException e) {
             System.err.println("Erro ao salvar cliente no arquivo: " + e.getMessage());
@@ -82,7 +81,7 @@ public class ClientesInputStream extends InputStream {
                 try (ClientesInputStream cis = new ClientesInputStream(new ByteArrayInputStream(entrada.getBytes()))) {
                     Cliente cliente = cis.lerCliente(entrada);
                     if (cliente != null) {
-                        System.out.println(cliente.getNomeCliente() + " - " + cliente.getCpf());
+                        System.out.println(cliente.getNome() + " - " + cliente.getCpf());
                         System.out.println("Cliente Cadastrado!");
 
                         salvarClienteEmArquivo(cliente, caminhoArquivo);
@@ -110,7 +109,7 @@ public class ClientesInputStream extends InputStream {
                     try (ClientesInputStream cis = new ClientesInputStream(new ByteArrayInputStream(linha.getBytes()))) {
                         Cliente cliente = cis.lerCliente(linha);
                         if (cliente != null) {
-                            System.out.println(cliente.getNomeCliente() + " - " + cliente.getCpf());
+                            System.out.println(cliente.getNome() + " - " + cliente.getCpf());
                         }
                     }
                 }
